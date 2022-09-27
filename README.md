@@ -1,4 +1,4 @@
-# React TO DO application
+# React TO DO Application
 
 This application was intentionally broken, there are six critical issues that a candidate has to fix:
 
