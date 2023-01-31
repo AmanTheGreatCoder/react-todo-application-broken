@@ -7,11 +7,18 @@ export const TodoList = () => {
   const { todos, setTodos } = React.useContext(TodosContext);
 
   const handleDelete = (id) => {
-    // Fix an ability to delete task
+    const newtodos = todos.filter((item) => item.id !== id);
+    setTodos(newtodos);
   };
 
   const toggleCheck = (id) => {
-    // Fix an ability to toggle task
+    const uptodo = todos.map((item) => {
+      if (item.id === id) {
+        return { id: item.id, label: item.label, checked: !item.checked };
+      }
+      return item;
+    });
+    setTodos(uptodo);
   };
 
   const handleKeyUp = (e, id) => {
@@ -37,7 +44,9 @@ export const TodoList = () => {
           ))}
         </div>
       ) : (
-        <div className="no-todos">Looks like you&apos;re absolutely free today!</div>
+        <div className="no-todos">
+          Looks like you&apos;re absolutely free today!
+        </div>
       )}
     </div>
   );
